@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Стереокамера</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin: 20px; background: #f0f0f0; }
+        h1 { color: #333; }
+        .video-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
+        .video-box { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .video-box h3 { margin-top: 0; color: #555; }
+        img { border: 2px solid #333; border-radius: 8px; max-width: 100%; height: auto; }
+        .combined { margin-top: 20px; }
+        .ip { color: #666; font-size: 14px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🎥 Видеопоток с камеры</h1>
+    
+    <div class="video-container">
+        <div class="video-box">
+            <h3>📷 Левая камера</h3>
+            <img src="{{ url_for('video_feed_left') }}" width="640">
+        </div>
+        <div class="video-box">
+            <h3>📷 Правая камера</h3>
+            <img src="{{ url_for('video_feed_right') }}" width="640">
+        </div>
+    </div>
+    
+    <div class="video-container combined">
+        <div class="video-box">
+            <h3>🖼️ Объединенный кадр</h3>
+            <img src="{{ url_for('video_feed_combined') }}" width="1280">
+        </div>
+    </div>
+    
+    <div class="ip">
+        🌐 Доступ с других устройств: http://192.168.1.53:5000
+    </div>
+</body>
+</html>
